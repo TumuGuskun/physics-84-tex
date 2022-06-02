@@ -1,0 +1,93 @@
+\documentclass[12pt,letterpaper,boxed,cm]{hmcpset}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{cases}
+\usepackage{enumitem}
+\usepackage{wasysym}
+\usepackage{braket}
+
+\name{~}
+\class{Physics 84}
+\assignment{Homework 5}
+\duedate{3/9/17}
+
+\newcommand{\pn}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\bk}[1]{\left[ #1 \right]}
+
+\begin{document}
+\problemlist{1, 2, 3, 4}
+
+\begin{problem}[1)]
+    \textbf{To Code or not to Code?}\\
+    We know the three-qubit bit-flip code can correct any single-qubit bit-flip error.  Let us consider an error channel in which each qubit experiences a bit flip with probability $p$, and no bit flip with probability $(1-p)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item If we use no error correction, so a one-qubit state $\ket{\psi}$ is represented by the state of a single physical qubit, what is the probability $P(error)$ that the state will undergo an uncorrected bit-flip error?
+        \item If we use the 3-qubit bit-flip code to represent the one-qubit state $\ket{\psi}$ in the states of three physical qubits, what is the probability $P(coded-error)$ that the state will undergo an uncorrected error?  Remember that the bit-flip code is capable of diagnosing and correcting a bit flip on any one of the three physical qubits.
+        \item Show that $P(coded-error)<P(error)$, meaning that coding improves the reliability of information transmission, as long as $p<\frac{1}{2}$.  Why is this restriction on $p$ not surprising?  If we know we have a channel with $p>\frac{1}{2}$, can you think of a strategy for recovering from bit-flip errors?
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[2)]
+    \textbf{Smallest Code for the Job}\\
+    Suppose we need to encode a general single-qubit state $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ in the states of $n$ physical qubits.  Without focusing on a particular error process or a particular code, we can make some general statements about the nature of the encoding situation.  Some $n$-qubit physical state $\ket{\mathbf{0}_L}$ will represent $\ket{0}$, and some orthogonal $n$-qubit physical state $\ket{\mathbf{1}_L}$ will represent $\ket{1}$.  Thus the initial encoded states $\alpha\ket{\mathbf{0}_L}+\beta\ket{\mathbf{1}_L}$ can be found in a two-dimensional subspace -- the ``code space'' -- of the overall $2^n$-dimensional state space for $n$ qubits.  Each particular error process maps the code space to some other two-dimensional subspace.
+    \begin{enumerate}[label=(\alph*)]
+        \item A bit-flip code diagnoses and corrects a bit-flip error in any one of the $n$ qubits.  It also diagnoses the ``no-error'' state and corrects \textit{it} by leaving it alone.  To permit this kind of reliable diagnosis of $(n+1)$ different conditions, requiring $(n+1)$ different correction protocols, it is necessary that the code space be mapped to $(n+1)$ mutually orthogonal subspaces by the $(n+1)$ different error or no-error processes.  Show that this reasoning leads to the requirement
+        \[
+            2^n \geq 2(n+1)
+        \]
+        and thus
+        \[
+            n \geq 3.
+        \]
+        Thus the 3-qubit bit-flip code is the smallest possible code that can correct bit-flip errors.
+        \item Suppose we require an $n$-qubit code that can correct a bit flip, a phase flip, or a combined bit-and-phase flip on any one of the $n$ qubits.  Develop a condition for the allowed values of $n$, and use it to show that $n\geq 5$ for such a code.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[3)]
+    \textbf{Extensions of the 3-Qubit Bit-Flip Code}\\
+    We saw in class how to correct single bit-flip errors with the 3-qubit bit-flip code.  In that version of the error-correction protocol, we measured our two ancilla qubits in the $\{\ket{0},\ket{1}\}$ basis, giving four possible measurement results.  Each measurement result instructed us to perform a particular error-correcting operation on the three code qubits.
+    \begin{enumerate}[label=(\alph*)]
+        \item Draw an error-correction circuit that performs the same 3-qubit bit-flip correction without explicit measurement of the ancilla qubits.  (Instead of measurement of the ancilla qubits and conditional operations on the code qubits, try controlled-U and/or controlled-controlled-U gates with the ancilla qubits as controls and the code qubits as targets.)  Your circuit can use any one-, two-, or three-qubit gates we have learned about in class, including CNOT and Toffoli gates.
+        \item At an arbitrary stage of a long quantum computation, the three code qubits may be entangled with an external set of qubits, in a state such as 
+        \[
+            \alpha\ket{000}\ket{\psi}_{ext} + \beta\ket{111}\ket{\psi_{\perp}}_{ext}
+        \] 
+        Convince yourself (and me!) that our error correction procedure protects even an entangled state like this against single bit-flip errors on the three code qubits.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[4)]
+    \textbf{9-Qubit Shor Encoding Circuit}\\
+    Recall that the 9-qubit Shor code encodes $\ket{0}$ and $\ket{1}$ as 
+    \begin{align*} 
+        \ket{\mathbf{0}_L} &= \frac{\bigl(\ket{000}+\ket{111}\bigr)\bigl(\ket{000}+\ket{111}\bigr)\bigl(\ket{000}+\ket{111}\bigr)}{2\sqrt{2}}, \\
+        \ket{\mathbf{1}_L} &= \frac{\bigl(\ket{000}-\ket{111}\bigr)\bigl(\ket{000}-\ket{111}\bigr)\bigl(\ket{000}-\ket{111}\bigr)}{2\sqrt{2}}. 
+    \end{align*}
+    Design a circuit that begins with a single qubit in state $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$ and eight qubits in state $\ket{0}$, and produces all nine qubits in the encoded state $\alpha\ket{\mathbf{0}_L} + \beta\ket{\mathbf{1}_L}$.  Explain or demonstrate how your circuit produces the desired output.  [Hint:  Remember that the Shor code is a concatenation, or nesting, of the three-qubit phase flip code and the three-qubit bit flip code.  Draw inspiration from the encoding circuits for each of two codes individually.]
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+
+\end{document}

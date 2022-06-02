@@ -1,0 +1,102 @@
+\documentclass[12pt,letterpaper,boxed,cm]{hmcpset}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{cases}
+\usepackage{enumitem}
+\usepackage{wasysym}
+\usepackage{braket}
+
+\name{~}
+\class{Physics 84}
+\assignment{Homework 7}
+\duedate{3/30/17}
+
+\newcommand{\pn}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\bk}[1]{\left[ #1 \right]}
+\newcommand{\matelem}[3]{\big\langle #1\big\vert #2\big\vert #3\big\rangle}
+
+\begin{document}
+\problemlist{1, 2}
+
+\begin{problem}[1.]
+    \textbf{Single-Qubit Density Matrix}\\
+    Consider an arbitrary density matrix $\rho$ for a single qubit (in a pure state \textit{or} a mixed state).  This density matrix represents, in the computational basis, a density operator $\hat{\rho}$ which can be written as $\hat{\rho} = \sum_{i} p_i\ket{\psi_i}\bra{\psi_i}$ for some ensemble of states $\{\ket{\psi_i}\}$ and probabilities $p_i$.  This implies various properties of the density matrix $\rho$, including: $\rho$ is Hermitian, $\rho$ is diagonalizable with positive eigenvalues, $tr(\rho)=1$, and $tr(\rho^2)\leq 1$.
+    \begin{enumerate}[label=(\alph*)]
+        \item We define matrices
+        \begin{align}
+            I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \hspace{1in}
+            &\sigma_x = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \nonumber \\
+            \sigma_y = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \hspace{1in}
+            &\sigma_z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \nonumber.
+        \end{align}
+        (The first matrix is, of course, the 2x2 identity matrix, and physicists will recognize the other three as the Pauli matrices.)  Show that an arbitrary single-qubit density matrix can be written:
+        \[
+            \rho = \frac{I+\vec{r}\cdot\vec{\sigma}}{2} = \frac{I+r_x\sigma_x + r_y\sigma_y + r_z\sigma_z}{2},
+        \]
+        where $\vec{r}$ is a real, three-dimensional vector with norm less than or equal to 1.  This vector is called the \textit{Bloch vector} for the single-qubit state represented by $\rho$.
+        \item Show that the Bloch vector has norm 1 if and only if $\rho$ represents a pure state.  Thus pure states have Bloch vectors on the surface of the Bloch sphere (unit sphere), consistent with our previous understanding; mixed states have Bloch vectors on the \textit{interior} of the Bloch sphere. 
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[2.]
+    \textbf{Bloch Vectors and the Bloch Sphere}
+    \begin{enumerate}[label=(\alph*)]
+        \item Consider a single-qubit pure state $\ket{\psi} = \cos \frac{\theta}{2} \ket{0} + e^{i\varphi}\sin \frac{\theta}{2}\ket{1}$.  Find the Bloch vector for this state according to the prescription of Problem 7.1, and show that it is the same as the vector on the Bloch sphere that we associated with this pure state in Chapter 2.
+        \item Consider the single-qubit density operator $\hat{\rho} = \frac{1}{2}\ket{\psi}\bra{\psi} + \frac{1}{2}\ket{\psi_{\perp}}\bra{\psi_{\perp}}$.  We saw in class that, independent of the specific state $\ket{\psi}$, this density operator is always equal to $\frac{1}{2}\ket{0}\bra{0}+\frac{1}{2}\ket{1}\bra{1}$.  What is the density matrix representing this density operator?  What is the Bloch vector for this mixed state?
+    \end{enumerate} 
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\headerblock
+\problemlist{3, 4}
+
+\begin{problem}[3.]
+    \textbf{Entangled or Not?}\\
+    For each of the following two-qubit states, (i) give the density matrix in the computational basis $\{\ket{00},\ket{01},\ket{10},\ket{11}\}$, (ii) perform the partial trace over qubit A to find the reduced density matrix $\rho_B$ in the $\{\ket{0},\ket{1}\}$ basis, and (iii) use the reduced density matrix to determine whether the two qubits were (at least partly) entangled with each other in the original state.
+    \begin{align}
+        &\mbox{(a)\hspace{0.5in}} \frac{\ket{00}+\ket{11}}{\sqrt{2}} \nonumber \\
+        &\mbox{(b)\hspace{0.5in}} \frac{\ket{00}+\ket{01}+\ket{10}}{\sqrt{3}} \nonumber \\
+        &\mbox{(c)\hspace{0.5in}} \frac{\ket{00}+\ket{01}+\ket{10}+\ket{11}}{2} \nonumber
+    \end{align}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[4.]
+    \textbf{Teleportation... Classical vs. Flawed Quantum Versions}\\
+    In the quantum teleportation protocol discussed in class, Alice and Bob use a shared entangled pair in the state $\ket{\Phi^+}_{AB} = \frac{1}{\sqrt{2}}\bigl(\ket{0}_A\ket{0}_B + \ket{1}_A\ket{1}_B\bigr)$ to teleport an arbitrary single-qubit input state $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$.  Let Bob's state at the end of the entire protocol be denoted $\ket{\phi}$; for successful teleportation, $\ket{\phi}=\ket{\psi}$, but in the presence of errors we can compute a teleportation fidelity $F \equiv \abs{\braket{\phi}{\psi}}^2$.  In this problem, we will be interested in the average teleportation fidelity, where the average is taken over all possible input states $\ket{\psi}$.  This average is performed by writing $\ket{\psi}=\cos\frac{\theta}{2}\ket{0}+e^{i\varphi}\sin\frac{\theta}{2}\ket{1}$ and averaging over the surface of the Bloch sphere, as in Problem 1.3.
+    \\
+    \\
+    First, consider what happens if the quantum resource -- the entangled pair -- is \textit{not} available.  Then Alice and Bob are attempting to teleport a qubit state using only classical resources.  The best they can do in this ``classical teleportation'' scenario is to let Alice simply pick any basis and measure the input state in that basis.  Then she transmits her result to Bob, and Bob prepares a new qubit in the state corresponding to Alice's measurement result.  Since the input state is arbitrary and unknown to Alice and Bob, there is no preferred basis for Alice's measurement, and we can assume she uses the $\{\ket{0},\ket{1}\}$ basis.  Then Problem 1.3 shows that the average teleportation fidelity is $2/3$.
+    \\
+    \\
+    Second, consider a scenario that occurs in several quantum teleportation experiments in the literature:  Alice and Bob share the entangled pair, but Alice's measuring device can only distinguish between three classes of the four Bell states.  Outcome 1 indicates $\ket{\Psi^+}$, Outcome 2 indicates $\ket{\Psi^-}$, and Outcome 3 indicates ``either $\ket{\Phi^+}$ or $\ket{\Phi^-}$.''  Alice communicates her measurement outcome to Bob as planned.  For Outcomes 1 and 2, Bob performs the appropriate operation on his qubit to recover $\ket{\psi}$.  For Outcome 3, Bob cannot know which operation will recover $\ket{\psi}$, so he chooses to do nothing (which is the correct answer for $\ket{\Phi^+}$ but not for $\ket{\Phi^-}$).
+    \\
+    \\
+    Using the flawed quantum teleportation protocol described above, what is the average teleportation fidelity?  Does it still exceed the classical average fidelity?  
+    \\
+    \\
+    Note:  You can solve this problem with or without using the density operator formalism to describe Bob's state after Alice's ambiguous measurement.  If you want to use the density operator formalism, the fidelity of a mixed state $\hat{\rho}$ to a pure state $\ket{\psi}$ is $F=\matelem{\psi}{\hat{\rho}}{\psi}$.  (The probability that a state with density operator $\hat{\rho}$ will be measured to be in pure state $\ket{\psi}$ instead of $\ket{\psi_{\perp}}$ is $tr(\ket{\psi}\bra{\psi}\hat{\rho}) = tr(\bra{\psi}\hat{\rho}\ket{\psi}) = \matelem{\psi}{\hat{\rho}}{\psi}$.)
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+\end{document}

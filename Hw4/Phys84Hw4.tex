@@ -1,0 +1,84 @@
+\documentclass[12pt,letterpaper,boxed,cm]{hmcpset}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{cases}
+\usepackage{enumitem}
+
+\name{~}
+\class{Physics 84}
+\assignment{Homework 4}
+\duedate{3/2/17}
+
+\newcommand{\pn}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\bk}[1]{\left[ #1 \right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\norm}[1]{\left|\left| #1\right|\right|}
+\newcommand{\bra}[1]{\big\langle #1\big\rvert}
+\newcommand{\Bra}[1]{\Big\langle #1\Big\rvert}
+\newcommand{\ket}[1]{\big\lvert #1\big\rangle}
+\newcommand{\Ket}[1]{\Big\lvert #1\big\rangle}
+\newcommand{\braket}[2]{\big\langle #1\big\vert #2\big\rangle}
+\newcommand{\matelem}[3]{\big\langle #1\big\vert #2\big\vert #3\big\rangle}
+
+
+\begin{document}
+\problemlist{1, 2, 3}
+
+\begin{problem}[1.]
+    \textbf{What $N$ Are Easy to Factor?}\\
+    Consider the $n$-qubit state 
+    \[
+        \hat{U}_{FT}\ket{\Phi_c} = \frac{1}{\sqrt{m2^n}} \sum_{y=0}^{2^n-1} e^{i2\pi yx_c/2^n} \Bigl(\sum_{\ell=0}^{m-1} e^{i2\pi y \ell r/2^n}\Bigr) \ket{y}
+    \] 
+    obtained in the quantum period-finding algorithm.  We have seen in class that, if $2^n/r$ is an integer, measuring this state in the computational basis will yield some value $y=h2^n/r$ with essentially unit probability.  Therefore, the quantum factoring algorithm is particularly simple and successful in the case $r=2^j$, where $r$ is the order of $a$ modulo $N$.  As a consequence of \textit{Fermat's little theorem}, a number-theoretic result we will not prove here, the order of every $a$ modulo $N$ is of the form $r=2^j$ whenever $N$ is the product of two primes $p=2^n+1$ and $q=2^m+1$.  
+    \begin{enumerate}[label=(\alph*)]
+        \item What are the smallest four \textit{odd} prime numbers of the form $2^n+1$?
+        \item What are the smallest four \textit{odd} values of $N=pq$ that are ``easier than average'' for a quantum computer to factor because of this special case?  If you see papers in which a quantum apparatus has factored one of these $N$'s, be aware that the task does not quite reach the difficulty of the general factoring problem.
+        \item For the smallest $N$ you identified in part (b) above, verify that $r$ is of the form $2^j$ for every choice of $a<N$ with $\gcd(a,N)=1$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[2.]
+    \textbf{Eigenstates and Eigenvalues of Modular Multiplication}\\
+    Consider the unitary operator $\hat{U}$ which acts on $n$-qubit computational basis states $\ket{w}$ via $\hat{U}\ket{w} = \ket{aw \pmod{N}}$ for integers $N$ and $a<N$.  Let $r$ be the (unknown) order of $a$ modulo $N$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Show that the states $\ket{u_h}$ are eigenstates of $\hat{U}$, where
+        \[
+            \ket{u_h} = \frac{1}{\sqrt{r}} \sum_{k=0}^{r-1} exp \Bigl[ \frac{-i2\pi h k}{r}\Bigr] \ket{a^k\pmod{N}}.
+        \]
+        \item Find the eigenvalue associated with $\ket{u_h}$.
+        \item Show that
+        \[
+            \frac{1}{\sqrt{r}} \sum_{h=0}^{r-1} \ket{u_h} = \ket{\mathbf{1}} = \ket{0...01}.
+        \]
+        Coupled with the discussion in your reading, these facts explain how the order-finding algorithm can be thought of as a phase-estimation algorithm for $\hat{U}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[3.]
+    \textbf{2-Qubit Quantum Fourier Transform}
+    \begin{enumerate}[label=(\alph*)]
+        \item Design and draw a circuit that accomplishes the two-qubit quantum Fourier transform using only Hadamard, controlled-S, and/or CNOT gates.  (Recall that $\hat{S} = \hat{T}^2$.)
+        \item Write the matrix representation of the two-qubit quantum Fourier transform in the standard two-qubit computational basis. 
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+
+\end{document}

@@ -1,0 +1,91 @@
+\documentclass[12pt,letterpaper,boxed,cm]{hmcpset}
+
+% set 1-inch margins in the document
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+% include this if you want to import graphics files with /includegraphics
+\usepackage{graphicx}
+\usepackage{cases}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{tikz}
+
+\name{John Gaskin}
+\class{Physics 84}
+\assignment{Skills Diagnostic}
+\duedate{1/26/17}
+
+\newcommand{\pn}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\bk}[1]{\left[ #1 \right]}
+\newcommand{\norm}[1]{\left|\left| #1\right|\right|}
+\newcommand{\bra}[1]{\big\langle #1\big\rvert}
+\newcommand{\Bra}[1]{\Big\langle #1\Big\rvert}
+\newcommand{\ket}[1]{\big\lvert #1\big\rangle}
+\newcommand{\Ket}[1]{\Big\lvert #1\big\rangle}
+\newcommand{\braket}[2]{\big\langle #1\big\vert #2\big\rangle}
+\newcommand{\matelem}[3]{\big\langle #1\big\vert #2\big\vert #3\big\rangle}
+
+\begin{document}
+\problemlist{1, 2, 3, 4}
+
+\begin{problem}[1]
+    \textbf{Eigenvalues and Eigenvectors}\\
+    Find the eigenvalues and eigenvectors of the following matrix: 
+    \[
+        \begin{bmatrix} 2 & i \\ -i & 2 \end{bmatrix}.
+    \]
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[2]
+    \textbf{Digital Logic Circuits}\\
+    Design and draw a simple logic circuit that takes two classical bits as input and is described by the following truth table:
+    \begin{center}
+        \begin{tabular}{l c || r}
+            A & B & Out \\
+            \hline
+            0 & 0 & 1 \\
+            0 & 1 & 1 \\
+            1 & 0 & 0 \\
+            1 & 1 & 1 
+        \end{tabular}
+    \end{center}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[3]
+    \textbf{Qubit States and Measurements}\\
+    A qubit is prepared in the quantum state $\ket{\psi} = \frac{1}{\sqrt{3}}\ket{0} + i\sqrt{\frac{2}{3}}\ket{1}$.
+    \begin{enumerate}
+        \item What is the probability that an ideal projective measurement in the $\{\ket{a},\ket{a_{\perp}}\}$ basis will find the qubit in the state $\ket{a}$ if $\ket{a} = \ket{0}$?
+        \item What if $\ket{a} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{1})$?
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[4]
+    \textbf{Matrix Operations}\\
+    Write down a matrix $U_{\chi}$ such that $U_{\chi} \begin{bmatrix} a \\ be^{i\varphi} \end{bmatrix} = \begin{bmatrix} a \\ be^{i(\varphi+\chi)} \end{bmatrix}$ for any real numbers $a$, $b$, and $\varphi$.  Is $U_{\chi}$ a unitary matrix?
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+
+% Add pairs of problems and solutions as needed
+
+\end{document}

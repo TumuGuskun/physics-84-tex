@@ -1,0 +1,117 @@
+\documentclass[10pt,letterpaper,boxed,cm]{hmcpset}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{cases}
+\usepackage{enumitem}
+\usepackage{wasysym}
+
+\name{~}
+\class{Physics 84}
+\assignment{Homework 8}
+\duedate{4/7/17}
+
+\newcommand{\pn}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\bk}[1]{\left[ #1 \right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\bra}[1]{\big\langle #1\big\rvert}
+\newcommand{\Bra}[1]{\Big\langle #1\Big\rvert}
+\newcommand{\ket}[1]{\big\lvert #1\big\rangle}
+\newcommand{\Ket}[1]{\Big\lvert #1\big\rangle}
+\newcommand{\braket}[2]{\big\langle #1\big\vert #2\big\rangle}
+\newcommand{\matelem}[3]{\big\langle #1\big\vert #2\big\vert #3\big\rangle}
+
+\begin{document}
+
+\problemlist{1, 2}
+
+\begin{problem}[1.]
+    \textbf{Teleportation is Nothing without the Phone Call}\footnote{This problem illustrates two important points.  First, teleportation is a complete failure without Alice's classical communication to Bob; without that, Bob learns nothing about Charlie's input state.  Second, even if two quantum systems are entangled, nothing that happens to the first system alone can instantaneously change the \textit{reduced density matrix} for the second system alone.}
+
+    In the quantum teleportation protocol discussed in class, Alice and Bob use a shared entangled pair in the state $\ket{\Phi^+}_{AB} = \frac{1}{\sqrt{2}}\bigl(\ket{0}_A\ket{0}_B + \ket{1}_A\ket{1}_B\bigr)$ to teleport Charlie's arbitrary single-qubit input state $\ket{\psi}_C = \alpha\ket{0}_C + \beta\ket{1}_C$.  At the beginning of the teleportation protocol, the three qubits C, A, and B are jointly in the state
+    \[
+        \bigl(\alpha\ket{0}_C+\beta\ket{1}_C\bigr)\frac{\bigl(\ket{0}_A\ket{0}_B+\ket{1}_A\ket{1}_B\bigr)}{\sqrt{2}}.
+    \]
+    \begin{enumerate}[label=(\alph*)]
+        \item Charlie brings his qubit in from the outside, so its state is initially completely separable from the state of qubits A and B, as we can see from the expression above.  Ignoring Charlie's qubit for the time being, write out the two-qubit density matrix for qubits A and B in the standard computational basis.  Perform the partial trace over qubit A to find the reduced density matrix for qubit B.
+        \item We have seen that the initial state of the three qubits can also be written
+        \begin{align}
+            &\Bigl(\frac{\ket{0}_C\ket{0}_A + \ket{1}_C\ket{1}_A}{\sqrt{2}}\Bigr) \Bigl(\frac{\alpha\ket{0}_B + \beta\ket{1}_B}{2}\Bigr) \nonumber \\
+            &+ \Bigl(\frac{\ket{0}_C\ket{0}_A - \ket{1}_C\ket{1}_A}{\sqrt{2}}\Bigr) \Bigl(\frac{\alpha\ket{0}_B - \beta\ket{1}_B}{2}\Bigr) \nonumber \\
+            &+ \Bigl(\frac{\ket{0}_C\ket{1}_A + \ket{1}_C\ket{0}_A}{\sqrt{2}}\Bigr) \Bigl(\frac{\alpha\ket{1}_B + \beta\ket{0}_B}{2}\Bigr) \nonumber \\
+            &+ \Bigl(\frac{\ket{0}_C\ket{1}_A - \ket{1}_C\ket{0}_A}{\sqrt{2}}\Bigr) \Bigl(\frac{\alpha\ket{1}_B - \beta\ket{0}_B}{2}\Bigr). \nonumber
+        \end{align}
+        Write out the entire three-qubit density matrix for qubits C, A, and B.  Use the following computational basis (note the ordering of the qubits!):
+        \begin{align*}
+            \{&\ket{0}_C\ket{0}_A\ket{0}_B, \ket{0}_C\ket{0}_A\ket{1}_B, \ket{0}_C\ket{1}_A\ket{0}_B, \ket{0}_C\ket{1}_A\ket{1}_B, \\
+            &\ket{1}_C\ket{0}_A\ket{0}_B, \ket{1}_C\ket{0}_A\ket{1}_B, \ket{1}_C\ket{1}_A\ket{0}_B, \ket{1}_C\ket{1}_A\ket{1}_B\}
+        \end{align*}
+        Perform the partial trace over qubits C and A to find the reduced density matrix for qubit B, starting from the full three-qubit density matrix.\footnote{You can do this in two steps, by tracing over qubit C to get the 4x4 reduced density matrix for qubits A and B, and then tracing over qubit A to get the 2x2 reduced density matrix for qubit B.  Alternately, you can do the trace over C and A in one step by looking at the full 8x8 matrix and picking out the 2x2 blocks that describe what is happening to qubit B if qubits A and C are jointly in a particular single state.}
+        \item Now suppose that Alice has performed her measurement on qubits C and A, but has not yet called Bob to inform him of the measurement results.  Bob thus holds a qubit that is in state $\bigl(\alpha\ket{0}_B + \beta\ket{1}_B\bigr)$ with probability $1/4$, in state $\bigl(\alpha\ket{0}_B - \beta\ket{1}_B\bigr)$ with probability $1/4$, in state $\bigl(\alpha\ket{1}_B + \beta\ket{0}_B\bigr)$ with probability $1/4$, and in state $\bigl(\alpha\ket{1}_B - \beta\ket{0}_B\bigr)$ with probability $1/4$.  Write out the density matrix for the state of Bob's qubit, based on this probabilistic mixture of four different pure states.  Compare it to your results for parts (a) and (b).
+    \end{enumerate}
+\end{problem}
+\newpage
+\begin{solution}
+    ~
+    \vfill
+\end{solution}
+\newpage
+
+\begin{problem}[2.]
+    \textbf{Quantum Dense Coding with Qutrits}\\
+    In this course, we have focused almost entirely on qubits -- quantum particles with two-dimensional state spaces, spanned by the orthogonal states $\{\ket{0},\ket{1}\}$.  In this problem, let us instead use quantum particles where each particle has three mutually distinguishable (and thus orthonormal) states $\{\ket{0},\ket{1},\ket{2}\}$.  A general pure state of a \textit{qutrit} like this is thus written $\alpha\ket{0}+\beta\ket{1}+\gamma\ket{2}$.\\\\
+    Suppose Alice and Bob share a pair of qutrits in the entangled state
+    \[
+        \ket{\Phi^0_0}_{AB} = \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{0}_B + \ket{1}_A\ket{1}_B + \ket{2}_A\ket{2}_B\Bigr).
+    \]
+    \begin{enumerate}[label=(\alph*)]
+        \item Verify that this state is entangled by writing the density matrix in the $\{\ket{00},\ket{01},\ket{02},\ket{10},\ket{11},\ket{12},\ket{20},\ket{21},\ket{22}\}$ basis and performing the partial trace over qutrit A to find the reduced density matrix for qutrit B.
+        \item Alice intends to send Bob one of nine pre-arranged messages by performing an operation on her qutrit to transform the entangled state into one of the nine states listed below.  She will then send her qutrit to Bob so he can measure both qutrits together and determine which message Alice was sending.  Verify that the nine \textit{qutrit Bell states} listed below are mutually orthogonal, so that Bob can in principle perform a measurement on the two particles to distinguish these nine states from each other unambiguously.
+        \begin{align}
+            \ket{\Phi^0_0}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{0}_B + \ket{1}_A\ket{1}_B + \ket{2}_A\ket{2}_B\Bigr) \nonumber \\
+            \ket{\Phi^1_0}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{0}_B + e^{i2\pi/3}\ket{1}_A\ket{1}_B + e^{i4\pi/3}\ket{2}_A\ket{2}_B\Bigr) \nonumber \\
+            \ket{\Phi^2_0}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{0}_B + e^{i4\pi/3}\ket{1}_A\ket{1}_B + e^{i2\pi/3}\ket{2}_A\ket{2}_B\Bigr) \nonumber \\
+            \ket{\Phi^0_1}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{1}_B + \ket{1}_A\ket{2}_B + \ket{2}_A\ket{0}_B\Bigr) \nonumber \\
+            \ket{\Phi^1_1}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{1}_B + e^{i2\pi/3}\ket{1}_A\ket{2}_B + e^{i4\pi/3}\ket{2}_A\ket{0}_B\Bigr) \nonumber \\
+            \ket{\Phi^2_1}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{1}_B + e^{i4\pi/3}\ket{1}_A\ket{2}_B + e^{i2\pi/3}\ket{2}_A\ket{0}_B\Bigr) \nonumber \\
+            \ket{\Phi^0_2}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{2}_B + \ket{1}_A\ket{0}_B + \ket{2}_A\ket{1}_B\Bigr) \nonumber \\
+            \ket{\Phi^1_2}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{2}_B + e^{i2\pi/3}\ket{1}_A\ket{0}_B + e^{i4\pi/3}\ket{2}_A\ket{1}_B\Bigr) \nonumber \\
+            \ket{\Phi^2_2}_{AB} &= \frac{1}{\sqrt{3}}\Bigl(\ket{0}_A\ket{2}_B + e^{i4\pi/3}\ket{1}_A\ket{0}_B + e^{i2\pi/3}\ket{2}_A\ket{1}_B\Bigr). \nonumber
+        \end{align}
+        \item Suppose Alice has access to a phase-shifting operator $\hat{P}$ and a value-shifting operator $\hat{V}$ that she can apply to her qutrit.  These are represented in the $\{\ket{0},\ket{1},\ket{2}\}$ basis as:
+        \begin{align}
+            \hat{P} \rightarrow P = \begin{bmatrix} 1 & 0 & 0 \\ 0 & e^{i2\pi/3} & 0 \\ 0 & 0 & e^{i4\pi/3} \end{bmatrix}, \nonumber \\
+            \hat{V} \rightarrow V = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}. \nonumber
+        \end{align}
+        Specify the nine operations by Alice, composed of applications of $\hat{V}$ and/or $\hat{P}$ to her qutrit in various combinations, that will turn the initial entangled state into each of the nine entangled states listed in part (b).
+    \end{enumerate}
+\end{problem}
+
+\newpage
+\begin{solution}
+    ~
+    \vfill
+\end{solution}
+\newpage
+
+\headerblock
+\problemlist{3}
+\begin{problem}[3.]
+    \textbf{Secret-Sharing with Different GHZ States}\\
+    Chapter 10 presents a protocol by which Alice shares a binary key between Bob and Charlie by using three-qubit GHZ states $\ket{\Psi_{GHZ}} = \frac{1}{\sqrt{2}}\bigl(\ket{000}+\ket{111}\bigr)$ shared between the three individuals.  One GHZ state generates one bit of the key.  Alice and Bob each independently choose to measure their qubits in the $\{\ket{+x},\ket{-x}\}$ or $\{\ket{+y},\ket{-y}\}$ basis.  Conditioned on their measurement choices and results, Charlie's qubit is in one of the states $\ket{+x}$, $\ket{-x}$, $\ket{+y}$, or $\ket{-y}$.  If Charlie chooses an appropriate measurement basis, his measurement result and Bob's can be used together to determine Alice's.
+    \\
+    \\
+    Suppose Alice, Bob, and Charlie begin with the entangled state $\ket{\Psi} = \frac{1}{\sqrt{2}}\bigl(\ket{000}-\ket{111}\bigr)$ instead of $\ket{\Psi_{GHZ}}$.  Construct a table like the one in the text to show the state of Charlie's qubit for each possible set of Alice and Bob's measurement outcomes.  How does the key-sharing protocol change from the one given in the textbook on pages 124-125 (pages 10-11 of Chapter 10)?
+    %\\
+    %\\
+    %(b) Suppose Alice, Bob, and Charlie begin with the state $\ket{\Psi} =\frac{1}{\sqrt{2}}\bigl(\ket{010}-\ket{101}\bigr)$.  Construct a table like the one in the text to show the state of Charlie's qubit for each possible set of Alice and Bob's measurement outcomes.  How does the key-sharing protocol change from the one we studied in class and the one in part (a)?
+\end{problem}
+
+\begin{solution}
+    \vfill
+\end{solution}
+\newpage
+\end{document}
